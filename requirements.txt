@@ -14,7 +14,7 @@ chromadb==0.5.15
 sentence-transformers==3.3.0
 
 # NLP & ML
-transformers==4.46.2
+transformers==4.45.2
 onnxruntime==1.19.2
 optimum[exporters]==1.23.1
 torch==2.4.1

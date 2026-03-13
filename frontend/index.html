@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="AI Document Analyzer - Upload and chat with your documents">
+    <title>Nexus | AI Document Intelligence</title>
+    
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Icons (Lucide) -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="blob-bg blob-1"></div>
+    <div class="blob-bg blob-2"></div>
+
+    <main class="app-container">
+        <!-- Header -->
+        <header class="app-header glass-panel">
+            <div class="logo">
+                <i data-lucide="brain-circuit" class="logo-icon"></i>
+                <h1>Document Analyzer<span> Agent</span></h1>
+            </div>
+            <div class="status-indicator">
+                <span class="pulse-dot" id="api-status-dot"></span>
+                <span id="api-status-text">Connecting...</span>
+            </div>
+        </header>
+
+        <!-- Content Grid -->
+        <div class="content-grid">
+            
+            <!-- Left Column: Upload & Insights -->
+            <section class="left-panel">
+                
+                <!-- Upload Zone -->
+                <div class="upload-card glass-panel interactive-card" id="upload-zone">
+                    <input type="file" id="file-input" class="hidden-input" accept=".pdf,.txt,.docx">
+                    <div class="upload-content">
+                        <div class="upload-icon-wrapper">
+                            <i data-lucide="cloud-upload" class="upload-icon"></i>
+                        </div>
+                        <h2>Analyze a Document</h2>
+                        <p>Drag & drop or <span class="highlight">browse</span></p>
+                        <span class="subtitle">PDF, TXT, DOCX up to 20MB</span>
+                    </div>
+                    
+                    <div class="upload-progress-overlay" id="upload-progress">
+                        <div class="spinner"></div>
+                        <p>Analyzing document...</p>
+                    </div>
+                </div>
+
+                <!-- Document Insights -->
+                <div class="insights-dashboard hidden" id="insights-dashboard">
+                    <h3 class="section-title"><i data-lucide="bar-chart-2"></i> Document Insights</h3>
+                    
+                    <!-- File Info -->
+                    <div class="info-badge-container">
+                        <div class="info-badge">
+                            <i data-lucide="file-text"></i>
+                            <span id="doc-name">report.pdf</span>
+                        </div>
+                    </div>
+
+                    <!-- Classifications -->
+                    <div class="card-section">
+                        <h4>Categories</h4>
+                        <div class="tag-cloud" id="classification-tags">
+                            <!-- Tags injected via JS -->
+                        </div>
+                    </div>
+
+                    <!-- Entities -->
+                    <div class="card-section">
+                        <h4>Entities Found</h4>
+                        <div class="entity-list" id="entity-list">
+                            <!-- Entities injected via JS -->
+                        </div>
+                    </div>
+                </div>
+
+            </section>
+
+            <!-- Right Column: Chat/RAG Interface -->
+            <section class="right-panel">
+                <div class="chat-container glass-panel">
+                    
+                    <div class="chat-header">
+                        <i data-lucide="message-square"></i>
+                        <h3>Document Chat</h3>
+                        <span class="badge" id="chat-badge">Awaiting Document</span>
+                    </div>
+
+                    <div class="chat-messages" id="chat-messages">
+                        <!-- Welcome Message -->
+                        <div class="message system-msg">
+                            <div class="msg-avatar"><i data-lucide="bot"></i></div>
+                            <div class="msg-bubble">
+                                Hello! Upload a document first, and then you can ask me questions about it.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="chat-input-area locked" id="chat-input-area">
+                        <div class="input-wrapper">
+                            <input type="text" id="chat-input" placeholder="Ask a question..." disabled>
+                            <button id="send-btn" disabled>
+                                <i data-lucide="send"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <script src="app.js"></script>
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+    </script>
+</body>
+</html>

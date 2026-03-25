@@ -65,7 +65,7 @@ An end-to-end LLM-powered document analysis API built with FastAPI, LangChain, O
 
 ```bash
 # Clone the repository
-git clone https://github.com/YOUR_USERNAME/ai-document-analyzer.git
+git clone https://github.com/emre-kocyigit/AI-document-analyzer.git
 cd ai-document-analyzer
 
 # Start all services
